@@ -98,6 +98,8 @@
         inputsFrom = [self.packages.${system}.default];
         buildInputs = with python310Packages; [
           pkgs.cachix
+          pkgs.git
+          pkgs.git-lfs
           pkgs.nodePackages.pyright
           self.packages.${system}.default
 
