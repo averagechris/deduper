@@ -4,11 +4,10 @@ build-backend = "flit_core.buildapi"
 
 [project]
 name = "deduper"
-version = "0.0.1"
+version = "0.0.2"
 authors = [{name = "Chris Cummings", email = "chris@thesogu.com"}]
 license = {file = "LICENSE"}
 classifiers = ["License :: OSI Approved :: MIT License"]
-# dynamic = ["version", "description"]
 dynamic = ["description"]
 
 [project.scripts]

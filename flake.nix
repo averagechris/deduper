@@ -36,10 +36,12 @@
           inherit src;
           propagatedBuildInputs = [bitmath typer];
           propagatedNativeBuildInputs = [pkgs.czkawka pkgs.ffmpeg];
-          checkInputs = [pytestCheckHook];
+          # TODO tests rely on data not in git tree for git lfs
+          # checkInputs = [pytestCheckHook];
+          checkInputs = [];
           format = "flit";
           pname = "deduper";
-          version = "0.0.1";
+          version = "0.0.2";
         };
     in {
       checks = {

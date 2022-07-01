@@ -77,9 +77,9 @@ def czkawka(test_files):
 def test_duplicates(czkawka):
     assert set(dup.name for dup in czkawka.duplicates()) == set(
         [
-            # "1.dup.jpeg",
+            "1.dup.jpeg",
             "2.low.mp4",
             "2.dup.mp4",
-            # "five - five - hello there - how are you - .jpg",
+            "five - five - hello there - how are you - .jpg",
         ]
     )
