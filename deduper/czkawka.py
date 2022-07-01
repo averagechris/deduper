@@ -111,6 +111,12 @@ class Czkawka:
     class Error(Exception):
         pass
 
+    @classmethod
+    def _path_from_parts(cls, parts: tuple[str]) -> Path:
+        # czkawka separates it's output by ` - ` but path names can also
+        # contain ` - ` so we have to put them back in.
+        return Path(" - ".join(parts))
+
     @wrap_subprocess_errors
     def run(self, command: CommandNames, *args: str) -> subprocess.CompletedProcess:
         return subprocess.run(
@@ -143,7 +149,7 @@ class Czkawka:
                     group = ResultGroup.new()
             else:
                 result = ImageResult(
-                    path=Path("".join(path_parts)),
+                    path=self._path_from_parts(path_parts),
                     dimension=ImageDimension.from_str(dimesions),
                     size=bitmath.parse_string(size).best_prefix(),
                     match_description=match_description,
@@ -182,7 +188,7 @@ class Czkawka:
                     group = ResultGroup.new()
             else:
                 result = Result(
-                    path=Path("".join(path_parts)),
+                    path=self._path_from_parts(path_parts),
                     size=bitmath.parse_string(size).best_prefix(),
                     match_description="very high",
                 )
